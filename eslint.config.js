@@ -37,7 +37,7 @@ export default [
           order: 'asc',
           ignoreCase: true,
           specialCharacters: 'keep',
-          internalPattern: ['^@/.+', '^@components/.+', '^@assets/.+'],
+          internalPattern: ['^@/.+', '^@components/.+', '^@assets/.+', '^@types/.+'],
           partitionByComment: false,
           partitionByNewLine: false,
           newlinesBetween: 'always',

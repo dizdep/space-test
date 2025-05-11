@@ -15,6 +15,7 @@
       "@/*": ["./src/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
+      "@types/*": ["./src/types/*"],
     }
   },
   "include": [

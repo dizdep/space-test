@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import { Banknote, LayoutDashboard, ShoppingCart, Store, Users } from 'lucide-vue-next'
 
 import {
@@ -6,17 +7,18 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
+  SidebarMenuItem,
+  SidebarTrigger
 } from '@/components/ui/sidebar'
 
+const route = useRoute()
 // Menu items.
 const items = [
   {
     title: 'Дашборд',
-    url: '#',
+    url: '/',
     icon: LayoutDashboard
   },
   {
@@ -46,15 +48,19 @@ const items = [
   <Sidebar collapsible="icon">
     <SidebarContent>
       <SidebarGroup>
-        <SidebarGroupLabel>Application</SidebarGroupLabel>
+        <SidebarTrigger />
         <SidebarGroupContent>
           <SidebarMenu>
             <SidebarMenuItem v-for="item in items" :key="item.title">
-              <SidebarMenuButton asChild>
-                <a :href="item.url">
+              <SidebarMenuButton
+                class="h-10 text-base font-medium transition-colors [&>svg]:size-[22px]"
+                :class="[route.path === item.url && 'bg-mint text-white']"
+                asChild
+              >
+                <RouterLink :to="item.url">
                   <component :is="item.icon" />
                   <span>{{ item.title }}</span>
-                </a>
+                </RouterLink>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
