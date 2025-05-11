@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>nma gap</div>
+  <h1>Users</h1>
 </template>
