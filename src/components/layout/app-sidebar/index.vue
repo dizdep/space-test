@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { Banknote, LayoutDashboard, ShoppingCart, Store, Users } from 'lucide-vue-next'
 
-import { SidebarHeader } from '@components/ui/sidebar'
+import { tabs } from '@/data'
+import logo from '@assets/images/logo.webp'
+import { SidebarHeader, useSidebar } from '@components/ui/sidebar'
 import {
   Sidebar,
   SidebarContent,
@@ -12,47 +13,26 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger
-} from '@/components/ui/sidebar'
+} from '@components/ui/sidebar'
 
 const route = useRoute()
-// Menu items.
-const items = [
-  {
-    title: 'Дашборд',
-    url: '/',
-    icon: LayoutDashboard
-  },
-  {
-    title: 'Магазин',
-    url: '#',
-    icon: Store
-  },
-  {
-    title: 'Заказы',
-    url: '#',
-    icon: ShoppingCart
-  },
-  {
-    title: 'Платежи',
-    url: '#',
-    icon: Banknote
-  },
-  {
-    title: 'Клиенты',
-    url: '/users',
-    icon: Users
-  }
-]
+const { state } = useSidebar()
 </script>
 
 <template>
   <Sidebar collapsible="icon">
-    <SidebarHeader> <SidebarTrigger /></SidebarHeader>
+    <SidebarHeader
+      class="flex flex-row items-center border-b transition-all"
+      :class="[state === 'collapsed' ? 'justify-center' : 'justify-between']"
+    >
+      <img :src="logo" alt="logo" width="122" :class="[state === 'collapsed' && 'hidden']" />
+      <SidebarTrigger :class="[state === 'collapsed' && 'rotate-180']" />
+    </SidebarHeader>
     <SidebarContent>
       <SidebarGroup>
         <SidebarGroupContent>
           <SidebarMenu>
-            <SidebarMenuItem v-for="item in items" :key="item.title">
+            <SidebarMenuItem v-for="item in tabs" :key="item.title">
               <SidebarMenuButton
                 class="h-10 text-base font-medium transition-colors [&>svg]:size-[22px]"
                 :class="[route.path === item.url && 'bg-mint text-white']"

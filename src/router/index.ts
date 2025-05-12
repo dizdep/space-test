@@ -12,6 +12,14 @@ const routes: Readonly<RouteRecordRaw[]> = [
     path: '/users',
     name: 'Users',
     component: () => import('@/pages/users/index.vue')
+  },
+  {
+    path: '/auth',
+    name: 'Auth',
+    component: () => import('@/pages/auth/index.vue'),
+    meta: {
+      layout: 'empty'
+    }
   }
 ]
 

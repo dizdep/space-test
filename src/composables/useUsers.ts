@@ -19,7 +19,25 @@ export const useUsers = () => {
     })
   }
 
+  function fetchFilteredUsers(key: string, value: string) {
+    return new Promise((resolve, reject) => {
+      http
+        .get<{ limit: number; skip: number; total: number; users: IUser[] }>('/users/filter', {
+          params: {
+            key,
+            value
+          }
+        })
+        .then(({ data }) => {
+          users.value = data.users
+          resolve(data)
+        })
+        .catch(reject)
+    })
+  }
+
   return {
+    fetchFilteredUsers,
     fetchUsers,
     users
   }
