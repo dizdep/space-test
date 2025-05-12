@@ -118,7 +118,7 @@
 }
 
 @utility container-size {
-  @apply container max-w-screen-xl! mx-auto px-4;
+  @apply container max-w-screen-2xl!  px-4;
 }
 
 @layer base {

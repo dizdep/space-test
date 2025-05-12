@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 
-import { PanelLeft } from 'lucide-vue-next'
+import { ChevronsLeft } from 'lucide-vue-next'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@components/ui/button'
@@ -21,10 +21,10 @@ const { toggleSidebar } = useSidebar()
     data-slot="sidebar-trigger"
     variant="ghost"
     size="icon"
-    :class="cn('h-7 w-7', props.class)"
+    :class="cn('size-8 [&>svg]:size-6', props.class)"
     @click="toggleSidebar"
   >
-    <PanelLeft />
+    <ChevronsLeft />
     <span class="sr-only">Toggle Sidebar</span>
   </Button>
 </template>

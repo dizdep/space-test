@@ -2,6 +2,7 @@
 import { useRoute } from 'vue-router'
 import { Banknote, LayoutDashboard, ShoppingCart, Store, Users } from 'lucide-vue-next'
 
+import { SidebarHeader } from '@components/ui/sidebar'
 import {
   Sidebar,
   SidebarContent,
@@ -46,9 +47,9 @@ const items = [
 
 <template>
   <Sidebar collapsible="icon">
+    <SidebarHeader> <SidebarTrigger /></SidebarHeader>
     <SidebarContent>
       <SidebarGroup>
-        <SidebarTrigger />
         <SidebarGroupContent>
           <SidebarMenu>
             <SidebarMenuItem v-for="item in items" :key="item.title">

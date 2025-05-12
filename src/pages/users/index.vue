@@ -12,7 +12,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <Table class="my-4">
+  <Table class="my-4 bg-white">
     <TableHeader>
       <TableRow>
         <TableHead>Имя клиента</TableHead>

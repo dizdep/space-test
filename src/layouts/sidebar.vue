@@ -6,11 +6,16 @@ import { SidebarProvider } from '@components/ui/sidebar'
 <template>
   <SidebarProvider>
     <AppSidebar />
-    <main class="container-size">
-      <RouterView v-slot="{ Component }">
-        <component :is="Component" />
-      </RouterView>
-      <slot />
+
+    <main class="w-full">
+      <nav class="container-size flex h-16 items-center border-b text-2xl font-semibold">
+        <p>Клиенты</p>
+      </nav>
+      <div class="container-size bg-[#F7F8FC]">
+        <RouterView v-slot="{ Component }">
+          <component :is="Component" />
+        </RouterView>
+      </div>
     </main>
   </SidebarProvider>
 </template>
